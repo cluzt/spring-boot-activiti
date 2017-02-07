@@ -3,7 +3,7 @@
   <signal id="cancelApplication" name="cancelApplication"/>
   <process id="hireProcess" name="Developer Hiring" isExecutable="true">
     <userTask id="sid-42BAE58A-8FFB-4B02-AAED-E0D8EA5A7E39" name="Telephone interview" activiti:candidateGroups="dev-managers">
-      <documentation>Conduct a telephone interview with ${applicantName}. Phone number = ${phoneNumber}</documentation>
+      <documentation>Conduct a telephone interview with ${applicant.name}. Phone number = ${applicant.phoneNumber}</documentation>
     </userTask>
     <exclusiveGateway id="sid-47ECD3C6-CA48-40D8-B478-6C26A122FA28"/>
     <sequenceFlow id="sid-B468226B-DB2E-421E-B04B-5FF1622F3E78" sourceRef="sid-42BAE58A-8FFB-4B02-AAED-E0D8EA5A7E39" targetRef="sid-47ECD3C6-CA48-40D8-B478-6C26A122FA28"/>
@@ -12,7 +12,7 @@
     <serviceTask id="sid-59C993BD-38A0-4DC3-97BC-F58FD94E38A9" name="Send rejection email" activiti:type="mail">
       <extensionElements>
         <activiti:field name="to">
-          <activiti:expression>${email}</activiti:expression>
+          <activiti:expression>${applicant.email}</activiti:expression>
         </activiti:field>
         <activiti:field name="from">
           <activiti:expression>test@activiti.org</activiti:expression>
@@ -21,7 +21,7 @@
           <activiti:string><![CDATA[Your application has been rejected]]></activiti:string>
         </activiti:field>
         <activiti:field name="html">
-          <activiti:expression>Dear ${applicantName},
+          <activiti:expression>Dear ${applicant.name},
 
 We're sorry to inform you that your recent application has been rejected. We have stored your information in our data systems and will contact you if in the future a potential matching application is posted on our website.
 
@@ -65,7 +65,7 @@ My Corp</activiti:expression>
     <serviceTask id="sid-F2ADA953-6FCF-42FA-B59E-45DAC6EACFA7" name="Send welcome mail" activiti:type="mail">
       <extensionElements>
         <activiti:field name="to">
-          <activiti:expression>${email}</activiti:expression>
+          <activiti:expression>${applicant.email}</activiti:expression>
         </activiti:field>
         <activiti:field name="from">
           <activiti:expression>test@activiti.org</activiti:expression>
@@ -74,7 +74,7 @@ My Corp</activiti:expression>
           <activiti:string><![CDATA[Your application has been accepted!]]></activiti:string>
         </activiti:field>
         <activiti:field name="html">
-          <activiti:expression>Dear ${applicantName},
+          <activiti:expression>Dear ${applicant.name},
 
 We're happy to inform you that your recent application has been accepted.  We will contact you soon for more information.
 
