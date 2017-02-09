@@ -24,19 +24,25 @@ public class MyRestController {
 	@Autowired
 	private ApplicantRepository applicantRepository;
 
-	@RequestMapping(value = "/start-hire-process", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void startHireProcess(@RequestBody Map<String, String> data) {
+	@RequestMapping(value = "/start-hire-process-json", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Applicant startHireProcessJson(@RequestBody Applicant applicant) {
 
-		Applicant applicant = new Applicant(data.get("name"), data.get("email"), data.get("phoneNumber"));
+		System.out.println(applicant.getName());
+		System.out.println(applicant.getEmail());
+		System.out.println(applicant.getPhoneNumber());
+
+//		Applicant applicant = new Applicant(data.get("name"), data.get("email"), data.get("phoneNumber"));
 		applicantRepository.save(applicant);
 
 		Map<String, Object> variables = new HashMap<String, Object>();
 		variables.put("applicant", applicant);
-		runtimeService.startProcessInstanceByKey("hireProcessWithJpa", variables);
+		runtimeService.startProcessInstanceByKey("hireProcess", variables);
+
+		return applicant;
 	}
 
 	@RequestMapping("/start-hire-process")
-	public @ResponseBody String startHireProcess() {
+	public @ResponseBody Applicant startHireProcess() {
 
 		Applicant applicant = new Applicant("John Doe", "john.doe@activiti.com", "123456789");
 		applicantRepository.save(applicant);
@@ -45,7 +51,7 @@ public class MyRestController {
 		variables.put("applicant", applicant);
 
 		runtimeService.startProcessInstanceByKey("hireProcess", variables);
-		return "Success";
+		return applicant;
 	}
 
 }
