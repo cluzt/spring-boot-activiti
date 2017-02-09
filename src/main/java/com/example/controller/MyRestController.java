@@ -31,7 +31,6 @@ public class MyRestController {
 		System.out.println(applicant.getEmail());
 		System.out.println(applicant.getPhoneNumber());
 
-//		Applicant applicant = new Applicant(data.get("name"), data.get("email"), data.get("phoneNumber"));
 		applicantRepository.save(applicant);
 
 		Map<String, Object> variables = new HashMap<String, Object>();

@@ -10,11 +10,8 @@ public class Applicant {
 	@Id
 	@GeneratedValue
 	private Long id;
-
 	private String name;
-
 	private String email;
-
 	private String phoneNumber;
 
 	public Applicant() {
@@ -58,4 +55,5 @@ public class Applicant {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 }
