@@ -24,7 +24,7 @@ public class ExpenseSubmissionController {
 	@Autowired
 	private ExpenseRequestRepository expenseRequestRepository;
 
-	@RequestMapping(value = "/submit-expense-request", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/expense-request/submit", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ExpenseRequest submitExpenseRequest(@RequestBody ExpenseRequest expenseRequest) {
 
 		expenseRequestRepository.save(expenseRequest);

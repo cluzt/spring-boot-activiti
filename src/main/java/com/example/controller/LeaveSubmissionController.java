@@ -24,7 +24,7 @@ public class LeaveSubmissionController {
 	@Autowired
 	private LeaveRequestRepository leaveRequestRepository;
 
-	@RequestMapping(value = "/submit-leave-request", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/leave-request/submit", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody LeaveRequest submitLeaveRequest(@RequestBody LeaveRequest leaveRequest) {
 
 		leaveRequestRepository.save(leaveRequest);

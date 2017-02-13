@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.dao.EmployeeRepository;
 import com.example.dao.OvertimeRequestRepository;
 import com.example.domain.OvertimeRequest;
 
@@ -23,15 +22,11 @@ public class OvertimeSubmissionController {
 	private RuntimeService runtimeService;
 
 	@Autowired
-	private EmployeeRepository employeeRepository;
-
-	@Autowired
 	private OvertimeRequestRepository overtimeRequestRepository;
 
-	@RequestMapping(value = "/submit-overtime-request", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/overtime-request/submit", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody OvertimeRequest submitOvertimeRequest(@RequestBody OvertimeRequest overtimeRequest) {
 
-		employeeRepository.save(overtimeRequest.getEmployee());
 		overtimeRequestRepository.save(overtimeRequest);
 
 		Map<String, Object> variables = new HashMap<String, Object>();
