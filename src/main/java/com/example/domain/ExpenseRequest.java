@@ -28,7 +28,7 @@ public class ExpenseRequest {
 	private String project;
 	private Date dateFrom;
 	private Date dateTo;
-	private String desination;
+	private String destination;
 	private String description;
 
 	private Long assessedBy;
@@ -47,14 +47,14 @@ public class ExpenseRequest {
 		super();
 	}
 
-	public ExpenseRequest(Long id, String project, Date dateFrom, Date dateTo, String desination, String description,
+	public ExpenseRequest(Long id, String project, Date dateFrom, Date dateTo, String destination, String description,
 			Long assessedBy, Date assessedDate, String status, Employee employee, Set<ExpenseItem> expenseItems) {
 		super();
 		this.id = id;
 		this.project = project;
 		this.dateFrom = dateFrom;
 		this.dateTo = dateTo;
-		this.desination = desination;
+		this.destination = destination;
 		this.description = description;
 		this.assessedBy = assessedBy;
 		this.assessedDate = assessedDate;
@@ -95,12 +95,12 @@ public class ExpenseRequest {
 		this.dateTo = dateTo;
 	}
 
-	public String getDesination() {
-		return desination;
+	public String getDestination() {
+		return destination;
 	}
 
-	public void setDesination(String desination) {
-		this.desination = desination;
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
 
 	public String getDescription() {

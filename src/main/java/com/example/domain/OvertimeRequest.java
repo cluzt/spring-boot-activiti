@@ -22,9 +22,9 @@ public class OvertimeRequest {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Date date;
-	private String from;
-	private String to;
+	private Date overtimeDate;
+	private String timeFrom;
+	private String timeTo;
 	private String description;
 
 	private Long assessedBy;
@@ -39,13 +39,13 @@ public class OvertimeRequest {
 		super();
 	}
 
-	public OvertimeRequest(Long id, Date date, String from, String to, String description, Long assessedBy,
-			Date assessedDate, String status, Employee employee) {
+	public OvertimeRequest(Long id, Date overtimeDate, String timeFrom, String timeTo, String description,
+			Long assessedBy, Date assessedDate, String status, Employee employee) {
 		super();
 		this.id = id;
-		this.date = date;
-		this.from = from;
-		this.to = to;
+		this.overtimeDate = overtimeDate;
+		this.timeFrom = timeFrom;
+		this.timeTo = timeTo;
 		this.description = description;
 		this.assessedBy = assessedBy;
 		this.assessedDate = assessedDate;
@@ -61,28 +61,28 @@ public class OvertimeRequest {
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getOvertimeDate() {
+		return overtimeDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setOvertimeDate(Date overtimeDate) {
+		this.overtimeDate = overtimeDate;
 	}
 
-	public String getFrom() {
-		return from;
+	public String getTimeFrom() {
+		return timeFrom;
 	}
 
-	public void setFrom(String from) {
-		this.from = from;
+	public void setTimeFrom(String timeFrom) {
+		this.timeFrom = timeFrom;
 	}
 
-	public String getTo() {
-		return to;
+	public String getTimeTo() {
+		return timeTo;
 	}
 
-	public void setTo(String to) {
-		this.to = to;
+	public void setTimeTo(String timeTo) {
+		this.timeTo = timeTo;
 	}
 
 	public String getDescription() {

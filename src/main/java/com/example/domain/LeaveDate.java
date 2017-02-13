@@ -17,16 +17,16 @@ public class LeaveDate {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Date date;
+	private Date leaveDate;
 
 	public LeaveDate() {
 		super();
 	}
 
-	public LeaveDate(Long id, Date date) {
+	public LeaveDate(Long id, Date leaveDate) {
 		super();
 		this.id = id;
-		this.date = date;
+		this.leaveDate = leaveDate;
 	}
 
 	public Long getId() {
@@ -37,12 +37,12 @@ public class LeaveDate {
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getLeaveDate() {
+		return leaveDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setLeaveDate(Date leaveDate) {
+		this.leaveDate = leaveDate;
 	}
 
 }
